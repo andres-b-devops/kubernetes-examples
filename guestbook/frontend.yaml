@@ -19,6 +19,13 @@ spec:
         image: us-docker.pkg.dev/google-samples/containers/gke/gb-frontend:v5
         ports:
         - containerPort: 80
+        env:
+        - name: GET_HOSTS_FROM
+          value: "dns"
+        - name: REDIS_MASTER_SERVICE_HOST
+          value: "redis-leader"
+        - name: REDIS_SLAVE_SERVICE_HOST
+          value: "redis-follower"
 ---
 apiVersion: v1
 kind: Service
