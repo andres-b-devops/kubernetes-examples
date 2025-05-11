@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: follower
-        image: redis:7.2-alpine
+        image: us-docker.pkg.dev/google-samples/containers/gke/gb-redis-follower:v2
         ports:
         - containerPort: 6379
         env:

@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: leader
-        image: redis:7.2-alpine
+        image: docker.io/redis:6.0.5
         ports:
         - containerPort: 6379
 ---
