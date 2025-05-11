@@ -16,9 +16,14 @@ spec:
     spec:
       containers:
       - name: php-redis
-        image: gcr.io/google-samples/gb-frontend:v5
+        image: paulbouwer/guestbook-php-redis:latest
         ports:
         - containerPort: 80
+        env:
+        - name: REDIS_MASTER_SERVICE_HOST
+          value: "redis-leader"
+        - name: REDIS_SLAVE_SERVICE_HOST
+          value: "redis-follower"
 ---
 apiVersion: v1
 kind: Service
