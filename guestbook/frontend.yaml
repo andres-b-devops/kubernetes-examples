@@ -19,10 +19,16 @@ spec:
         image: gcr.io/google-samples/gb-frontend:v5
         ports:
         - containerPort: 80
-        env:
-        - name: GET_HOSTS_FROM
-          value: "dns"
-        - name: REDIS_LEADER_SERVICE_HOST
-          value: "redis-leader"
-        - name: REDIS_FOLLOWER_SERVICE_HOST
-          value: "redis-follower"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: guestbook-frontend
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: guestbook
+    tier: frontend
