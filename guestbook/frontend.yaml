@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: php-redis
-        image: paulbouwer/guestbook-php-redis:latest
+        image: gcr.io/google-samples/gb-frontend:v5
         ports:
         - containerPort: 80
         env:
