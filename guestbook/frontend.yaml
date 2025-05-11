@@ -16,16 +16,14 @@ spec:
     spec:
       containers:
       - name: php-redis
-        image: us-docker.pkg.dev/google-samples/containers/gke/gb-frontend:v5
+        image: ghcr.io/andresurbanog/guestbook-frontend-arm64:latest
         ports:
         - containerPort: 80
         env:
-        - name: GET_HOSTS_FROM
-          value: "dns"
         - name: REDIS_MASTER_SERVICE_HOST
-          value: "redis-leader"
+          value: redis-leader
         - name: REDIS_SLAVE_SERVICE_HOST
-          value: "redis-follower"
+          value: redis-follower
 ---
 apiVersion: v1
 kind: Service
